@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ansonia Theater</title>
-<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <meta name="description" content="Ansonia Theater is a community youth theater for 4th, 5th, and 6th graders. This year: Beauty and the Beast. Auditions November 9, 10 and 11.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +39,9 @@
 
   /* Hero */
   .hero { background: radial-gradient(ellipse at 50% 0%, #7d1a38 0%, var(--burgundy) 45%, var(--burgundy-dark) 100%); color: var(--gold-soft); text-align: center; padding: 4.5rem 0 5rem; }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; justify-items: center; }
+  .hero-poster { order: -1; width: min(220px, 60%); height: auto; border: 3px solid var(--gold); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+  @media (min-width: 800px) { .hero-grid { grid-template-columns: 1fr 340px; gap: 3rem; } .hero-poster { order: 0; width: 100%; } }
   .hero .logo { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--gold); background: #fff; margin-bottom: 1rem; }
   .eyebrow { text-transform: uppercase; letter-spacing: .25em; font-size: .8rem; color: var(--gold); margin: 0 0 .75rem; }
   .hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); color: #fff; margin-bottom: .2em; }
@@ -132,13 +135,16 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
     <img class="logo" src="images/logo.svg" alt="Ansonia Theater logo" width="160" height="160">
     <p class="eyebrow">Ansonia Theater presents</p>
     <h1>Beauty <em>and the</em> Beast</h1>
     <p class="lead">Our community play for 4th, 5th, and 6th grade students. Auditions are <strong>November 9, 10 &amp; 11</strong>.</p>
     <a class="btn" href="#auditions">Audition Details</a>
     <a class="btn ghost" href="#schedule">Rehearsal Schedule</a>
+    </div>
+    <img class="hero-poster" src="images/poster.jpg" alt="Disney's Beauty and the Beast JR. poster" width="960" height="1200">
   </div>
 </header>
 
@@ -153,13 +159,13 @@
       <!-- EDIT: copy one .update block per announcement. Newest goes on top. -->
       <div class="update">
         <time datetime="2026-10-27">October 27, 2026</time>
+        <h3>Get audition forms signed</h3>
+        <p>All audition forms should be filled out with a family member and then signed by a classroom teacher and UA teacher.</p>
+      </div>
+      <div class="update">
+        <time datetime="2026-10-25">October 25, 2026</time>
         <h3>Auditions are coming up!</h3>
         <p>Auditions for <em>Beauty and the Beast</em> will be held November 9, 10, and 11. Students in grades 4–6 are welcome. Look over the audition materials below before you come.</p>
-      </div>
-      <div class="update placeholder">
-        <time datetime="2026-10-27">Sample announcement</time>
-        <h3>Replace me with your next update</h3>
-        <p>Use this space for schedule changes, cancellations, costume reminders, or anything families need to know.</p>
       </div>
     </div>
   </div>
