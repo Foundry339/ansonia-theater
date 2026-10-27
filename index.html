@@ -30,14 +30,15 @@
   /* Nav */
   nav { position: sticky; top: 0; z-index: 10; background: var(--burgundy-dark); border-bottom: 2px solid var(--gold); }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: .5rem; padding-bottom: .5rem; }
-  .brand { font-family: var(--serif); font-weight: 700; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
+  .brand { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--serif); font-weight: 700; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
+  .brand img { width: 40px; height: 40px; border-radius: 50%; }
   nav ul { list-style: none; display: flex; gap: 1.1rem; margin: 0; padding: 0; flex-wrap: wrap; }
   nav ul a { color: var(--gold-soft); text-decoration: none; font-size: .95rem; font-weight: 700; letter-spacing: .03em; }
   nav ul a:hover, nav ul a:focus { color: #fff; text-decoration: underline; }
 
   /* Hero */
   .hero { background: radial-gradient(ellipse at 50% 0%, #7d1a38 0%, var(--burgundy) 45%, var(--burgundy-dark) 100%); color: var(--gold-soft); text-align: center; padding: 4.5rem 0 5rem; }
-  .hero .rose { font-size: 3rem; }
+  .hero .logo { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--gold); background: #fff; margin-bottom: 1rem; }
   .eyebrow { text-transform: uppercase; letter-spacing: .25em; font-size: .8rem; color: var(--gold); margin: 0 0 .75rem; }
   .hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); color: #fff; margin-bottom: .2em; }
   .hero h1 em { color: var(--gold); font-weight: 500; }
@@ -89,6 +90,11 @@
   .cast-card { text-align: center; }
   .avatar { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto .75rem; background: var(--gold-soft); border: 3px solid var(--gold); display: grid; place-items: center; font-size: 2rem; overflow: hidden; }
   .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .cast-grid { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); }
+  .role-card { padding: .7rem 1rem; text-align: left; }
+  .role-card h3 { font-size: 1.15rem; margin: 0; color: var(--burgundy); }
+  .role-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+  @media (max-width: 420px) { .cast-grid { grid-template-columns: 1fr; } }
   .cast-card h3 { font-size: 1.3rem; margin: 0; color: var(--burgundy); }
   .cast-card p { margin: 0; color: var(--muted); font-size: .95rem; }
 
@@ -112,7 +118,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">Ansonia Theater</a>
+    <a class="brand" href="#top"><img src="images/logo.svg" alt="" width="40" height="40">Ansonia Theater</a>
     <ul>
       <li><a href="#auditions">Auditions</a></li>
       <li><a href="#schedule">Schedule</a></li>
@@ -126,7 +132,7 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="rose" aria-hidden="true">🌹</div>
+    <img class="logo" src="images/logo.svg" alt="Ansonia Theater logo" width="160" height="160">
     <p class="eyebrow">Ansonia Theater presents</p>
     <h1>Beauty <em>and the</em> Beast</h1>
     <p class="lead">Our community play for 4th, 5th, and 6th grade students. Auditions are <strong>November 9, 10 &amp; 11</strong>.</p>
@@ -170,22 +176,21 @@
         <div class="month">November</div>
         <div class="day">9</div>
         <div class="dow">Monday</div>
-        <p class="placeholder">Time: TBD<br>Location: TBD</p>
+        <p>Time: 3:30 – 5:00 PM, immediately after school<br>Location: Prendergast Gym</p>
       </div>
       <div class="card date-card">
         <div class="month">November</div>
         <div class="day">10</div>
         <div class="dow">Tuesday</div>
-        <p class="placeholder">Time: TBD<br>Location: TBD</p>
+        <p>Time: 3:30 – 5:00 PM, immediately after school<br>Location: Prendergast Gym</p>
       </div>
       <div class="card date-card">
         <div class="month">November</div>
         <div class="day">11</div>
         <div class="dow">Wednesday</div>
-        <p class="placeholder">Time: TBD<br>Location: TBD</p>
+        <p>Time: 3:30 – 5:00 PM, immediately after school<br>Location: Prendergast Gym</p>
       </div>
     </div>
-    <!-- EDIT: fill in the audition times and location above, and adjust the tips below as needed. -->
     <div class="note">
       <strong>What to expect:</strong> Students will sing a short selection and read a few lines from the script. Find the songs and sides in the <a href="#materials">audition materials</a> section.
     </div>
@@ -206,8 +211,7 @@
         </thead>
         <tbody>
           <!-- EDIT: copy a <tr> row for each rehearsal. -->
-          <tr class="placeholder"><td>Sample: Mon, Nov 16</td><td>3:30 – 5:30 PM</td><td>TBD</td><td>Full cast</td></tr>
-          <tr class="placeholder"><td>Sample: Wed, Nov 18</td><td>3:30 – 5:30 PM</td><td>TBD</td><td>Principals</td></tr>
+          <tr class="placeholder"><td>TBD</td><td>TBD</td><td>TBD</td><td>TBD</td></tr>
         </tbody>
       </table>
     </div>
@@ -235,8 +239,13 @@
       <div class="card">
         <h3>📜 Sides</h3>
         <ul>
-          <!-- EDIT: replace with real links, e.g. <li><a href="materials/sides-belle.pdf">Belle sides</a></li> -->
-          <li class="soon">Sides coming soon.</li>
+          <li><a href="materials/sides/audition-side-beast-belle-maurice.pdf" target="_blank" rel="noopener">Audition Side - Beast, Belle, Maurice</a></li>
+          <li><a href="materials/sides/audition-side-belle-gaston-lefou.pdf" target="_blank" rel="noopener">Audition Side - Belle, Gaston, Lefou</a></li>
+          <li><a href="materials/sides/audition-side-gaston-lefou.pdf" target="_blank" rel="noopener">Audition Side - Gaston, Lefou</a></li>
+          <li><a href="materials/sides/audition-side-gaston-les-filles-de-la-ville.pdf" target="_blank" rel="noopener">Audition Side - Gaston, Les Filles De La Ville</a></li>
+          <li><a href="materials/sides/audition-side-maurice-lumiere-babette-mrs-potts-chip-cogsworth.pdf" target="_blank" rel="noopener">Audition Side - Maurice, Lumiere, Babette, Mrs. Potts, Chip, Cogsworth</a></li>
+          <li><a href="materials/sides/audition-side-mrs-potts-lumiere-beast-cogsworth-babette-madame-de-la-grande-bouche.pdf" target="_blank" rel="noopener">Audition Side - Mrs.Potts, Lumiere, Beast, Cogsworth, Babette, Madame de la Grande Bouche</a></li>
+          <li><a href="materials/sides/audition-side-narrators.pdf" target="_blank" rel="noopener">Audition Side - Narrators</a></li>
         </ul>
       </div>
     </div>
@@ -250,22 +259,63 @@
       <h2>The Cast</h2>
       <p>The cast list will be posted here after auditions.</p>
     </div>
-    <div class="grid">
-      <!-- EDIT: copy a .cast-card for each cast member. To use a photo, replace the emoji with <img src="images/name.jpg" alt="Name">. -->
-      <div class="card cast-card placeholder">
-        <div class="avatar" aria-hidden="true">🌹</div>
+    <div class="cast-grid">
+      <!-- EDIT: copy a .role-card for each cast member. -->
+      <div class="card role-card placeholder">
         <h3>Student Name</h3>
         <p>Belle</p>
       </div>
-      <div class="card cast-card placeholder">
-        <div class="avatar" aria-hidden="true">🦁</div>
+      <div class="card role-card placeholder">
         <h3>Student Name</h3>
-        <p>The Beast</p>
+        <p>Beast / Prince</p>
       </div>
-      <div class="card cast-card placeholder">
-        <div class="avatar" aria-hidden="true">🕯️</div>
+      <div class="card role-card placeholder">
         <h3>Student Name</h3>
-        <p>Lumière</p>
+        <p>Gaston</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Lefou</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Maurice</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Lumiere</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Cogsworth</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Mrs. Potts</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Chip</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Babette</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Madame de la Grande Bouche</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Monsieur D’Arque</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Old Beggar Woman / Enchantress</p>
+      </div>
+      <div class="card role-card placeholder">
+        <h3>Student Name</h3>
+        <p>Ensemble</p>
       </div>
     </div>
   </div>
@@ -280,17 +330,21 @@
     </div>
     <div class="grid" style="grid-template-columns: 1fr;">
       <!-- EDIT: copy a .show card for each year, newest first. -->
-      <div class="card show placeholder">
+      <div class="card show">
         <div class="year">2025</div>
-        <div><h3>Show Title</h3><p>A short description, or a link to photos.</p></div>
+        <div><h3>Annie</h3></div>
       </div>
-      <div class="card show placeholder">
+      <div class="card show">
         <div class="year">2024</div>
-        <div><h3>Show Title</h3><p>A short description, or a link to photos.</p></div>
+        <div><h3>Moana</h3></div>
       </div>
-      <div class="card show placeholder">
+      <div class="card show">
         <div class="year">2023</div>
-        <div><h3>Show Title</h3><p>A short description, or a link to photos.</p></div>
+        <div><h3>Finding Nemo</h3></div>
+      </div>
+      <div class="card show">
+        <div class="year">2022</div>
+        <div><h3>Frozen</h3></div>
       </div>
     </div>
   </div>
@@ -321,8 +375,7 @@
 <footer>
   <div class="wrap">
     <p><strong>Ansonia Theater</strong> · Community theater for grades 4–6</p>
-    <!-- EDIT: add a real contact email -->
-    <p class="placeholder">Questions? Contact: your-email@example.com</p>
+    <p>Questions? Contact <a href="mailto:ntingley@ansonia.org">Nancy Tingley</a> (<a href="mailto:ntingley@ansonia.org">ntingley@ansonia.org</a>) or <a href="mailto:cpytlak@ansonia.org">Chris Pytlak</a> (<a href="mailto:cpytlak@ansonia.org">cpytlak@ansonia.org</a>)</p>
   </div>
 </footer>
 
