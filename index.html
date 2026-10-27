@@ -36,6 +36,19 @@
   nav ul { list-style: none; display: flex; gap: 1.1rem; margin: 0; padding: 0; flex-wrap: wrap; }
   nav ul a { color: var(--gold-soft); text-decoration: none; font-size: .95rem; font-weight: 700; letter-spacing: .03em; }
   nav ul a:hover, nav ul a:focus { color: #fff; text-decoration: underline; }
+  .nav-toggle { display: none; background: none; border: 2px solid var(--gold); border-radius: 8px; padding: .45rem .55rem; cursor: pointer; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--gold); border-radius: 2px; transition: transform .2s, opacity .2s; }
+  .nav-toggle span + span { margin-top: 5px; }
+  nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+  nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 700px) {
+    nav.js .nav-toggle { display: block; }
+    nav.js ul { display: none; flex-direction: column; gap: 0; width: 100%; }
+    nav.js.open ul { display: flex; }
+    nav.js ul li { border-top: 1px solid rgba(212,169,79,.25); }
+    nav.js ul a { display: block; padding: .75rem .25rem; font-size: 1.05rem; }
+  }
 
   /* Hero */
   .hero { background: radial-gradient(ellipse at 50% 0%, #7d1a38 0%, var(--burgundy) 45%, var(--burgundy-dark) 100%); color: var(--gold-soft); text-align: center; padding: 4.5rem 0 5rem; }
@@ -123,7 +136,8 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/logo.svg" alt="" width="40" height="40">Ansonia Theater</a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul id="nav-links">
       <li><a href="#auditions">Auditions</a></li>
       <li><a href="#schedule">Schedule</a></li>
       <li><a href="#materials">Materials</a></li>
@@ -386,6 +400,21 @@
     <p>Questions? Contact <a href="mailto:ntingley@ansonia.org">Nancy Tingley</a> (<a href="mailto:ntingley@ansonia.org">ntingley@ansonia.org</a>) or <a href="mailto:cpytlak@ansonia.org">Chris Pytlak</a> (<a href="mailto:cpytlak@ansonia.org">cpytlak@ansonia.org</a>)</p>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var nav = document.querySelector('nav');
+    var btn = nav.querySelector('.nav-toggle');
+    nav.classList.add('js');
+    function setOpen(open) {
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    }
+    btn.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+    nav.querySelectorAll('ul a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  })();
+</script>
 
 </body>
 </html>
