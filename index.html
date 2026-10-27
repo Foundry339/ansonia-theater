@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ansonia Theater | Beauty and the Beast</title>
+<meta name="description" content="Ansonia Theater is a community youth theater for 4th, 5th, and 6th graders. This year: Beauty and the Beast. Auditions November 9, 10 and 11.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #5a0f24;
+    --burgundy-dark: #3b0816;
+    --gold: #d4a94f;
+    --gold-soft: #f1dfae;
+    --cream: #fbf6ec;
+    --ink: #2a1a1f;
+    --muted: #6d5a5f;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Lato", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.6; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0 0 .5em; }
+  a { color: var(--burgundy); }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: var(--burgundy-dark); border-bottom: 2px solid var(--gold); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: .5rem; padding-bottom: .5rem; }
+  .brand { font-family: var(--serif); font-weight: 700; font-size: 1.4rem; color: var(--gold); text-decoration: none; }
+  nav ul { list-style: none; display: flex; gap: 1.1rem; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav ul a { color: var(--gold-soft); text-decoration: none; font-size: .95rem; font-weight: 700; letter-spacing: .03em; }
+  nav ul a:hover, nav ul a:focus { color: #fff; text-decoration: underline; }
+
+  /* Hero */
+  .hero { background: radial-gradient(ellipse at 50% 0%, #7d1a38 0%, var(--burgundy) 45%, var(--burgundy-dark) 100%); color: var(--gold-soft); text-align: center; padding: 4.5rem 0 5rem; }
+  .hero .rose { font-size: 3rem; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .25em; font-size: .8rem; color: var(--gold); margin: 0 0 .75rem; }
+  .hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); color: #fff; margin-bottom: .2em; }
+  .hero h1 em { color: var(--gold); font-weight: 500; }
+  .hero p.lead { font-size: 1.2rem; max-width: 36rem; margin: 0 auto 1.75rem; }
+  .btn { display: inline-block; background: var(--gold); color: var(--burgundy-dark); font-weight: 700; text-decoration: none; padding: .8rem 1.6rem; border-radius: 999px; margin: .25rem; }
+  .btn:hover, .btn:focus { background: #fff; }
+  .btn.ghost { background: transparent; color: var(--gold); border: 2px solid var(--gold); }
+  .btn.ghost:hover, .btn.ghost:focus { background: var(--gold); color: var(--burgundy-dark); }
+
+  /* Sections */
+  section { padding: 4rem 0; }
+  section:nth-of-type(even) { background: #fff; }
+  .section-head { text-align: center; margin-bottom: 2rem; }
+  .section-head h2 { font-size: 2.4rem; color: var(--burgundy); }
+  .section-head h2::after { content: ""; display: block; width: 70px; height: 3px; background: var(--gold); margin: .5rem auto 0; }
+  .section-head p { color: var(--muted); max-width: 38rem; margin: .75rem auto 0; }
+
+  .card { background: #fff; border: 1px solid #ead9b8; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(90,15,36,.06); }
+  section:nth-of-type(even) .card { background: var(--cream); }
+  .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+  /* Audition dates */
+  .date-card { text-align: center; }
+  .date-card .day { font-family: var(--serif); font-size: 3.4rem; color: var(--burgundy); line-height: 1; }
+  .date-card .month { text-transform: uppercase; letter-spacing: .15em; color: var(--gold); font-weight: 700; font-size: .85rem; }
+  .date-card .dow { color: var(--muted); }
+  .note { background: var(--gold-soft); border-left: 4px solid var(--gold); padding: .9rem 1.1rem; border-radius: 6px; margin-top: 1.5rem; }
+
+  /* Announcements */
+  .update { border-left: 4px solid var(--gold); padding-left: 1rem; margin-bottom: 1.25rem; }
+  .update time { font-size: .85rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  .update h3 { font-size: 1.4rem; margin: .1em 0 .2em; color: var(--burgundy); }
+
+  /* Schedule table */
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; }
+  th, td { padding: .85rem 1rem; text-align: left; border-bottom: 1px solid #ead9b8; }
+  th { background: var(--burgundy); color: var(--gold-soft); font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; }
+  tr:last-child td { border-bottom: 0; }
+
+  /* Materials */
+  .materials h3 { color: var(--burgundy); font-size: 1.5rem; }
+  .materials ul { list-style: none; padding: 0; margin: 0; }
+  .materials li { padding: .6rem 0; border-bottom: 1px dashed #ead9b8; }
+  .materials li:last-child { border-bottom: 0; }
+  .soon { color: var(--muted); font-style: italic; }
+
+  /* Cast */
+  .cast-card { text-align: center; }
+  .avatar { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto .75rem; background: var(--gold-soft); border: 3px solid var(--gold); display: grid; place-items: center; font-size: 2rem; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .cast-card h3 { font-size: 1.3rem; margin: 0; color: var(--burgundy); }
+  .cast-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+  /* Past shows */
+  .show { display: flex; gap: 1rem; align-items: baseline; }
+  .show .year { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--gold); min-width: 4.5rem; }
+  .show h3 { font-size: 1.35rem; margin: 0 0 .2em; color: var(--burgundy); }
+  .show p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+  /* About / footer */
+  .founders { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 1.5rem; }
+  footer { background: var(--burgundy-dark); color: var(--gold-soft); text-align: center; padding: 2.5rem 0; font-size: .95rem; }
+  footer a { color: var(--gold); }
+
+  .placeholder { outline: 2px dashed #c98b8b; outline-offset: 2px; }
+  @media (max-width: 600px) { nav ul { gap: .7rem; } .hero { padding: 3rem 0 3.5rem; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Ansonia Theater</a>
+    <ul>
+      <li><a href="#auditions">Auditions</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#materials">Materials</a></li>
+      <li><a href="#cast">Cast</a></li>
+      <li><a href="#past-shows">Past Shows</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="rose" aria-hidden="true">🌹</div>
+    <p class="eyebrow">Ansonia Theater presents</p>
+    <h1>Beauty <em>and the</em> Beast</h1>
+    <p class="lead">Our community play for 4th, 5th, and 6th grade students. Auditions are <strong>November 9, 10 &amp; 11</strong>.</p>
+    <a class="btn" href="#auditions">Audition Details</a>
+    <a class="btn ghost" href="#schedule">Rehearsal Schedule</a>
+  </div>
+</header>
+
+<!-- ============ UPDATES ============ -->
+<section id="updates">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Latest Updates</h2>
+      <p>Check here first for news and schedule changes.</p>
+    </div>
+    <div class="card">
+      <!-- EDIT: copy one .update block per announcement. Newest goes on top. -->
+      <div class="update">
+        <time datetime="2026-10-27">October 27, 2026</time>
+        <h3>Auditions are coming up!</h3>
+        <p>Auditions for <em>Beauty and the Beast</em> will be held November 9, 10, and 11. Students in grades 4–6 are welcome. Look over the audition materials below before you come.</p>
+      </div>
+      <div class="update placeholder">
+        <time datetime="2026-10-27">Sample announcement</time>
+        <h3>Replace me with your next update</h3>
+        <p>Use this space for schedule changes, cancellations, costume reminders, or anything families need to know.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDITIONS ============ -->
+<section id="auditions">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Auditions</h2>
+      <p>Open to all 4th, 5th, and 6th grade students. No experience needed. Come ready to have fun!</p>
+    </div>
+    <div class="grid">
+      <div class="card date-card">
+        <div class="month">November</div>
+        <div class="day">9</div>
+        <div class="dow">Monday</div>
+        <p class="placeholder">Time: TBD<br>Location: TBD</p>
+      </div>
+      <div class="card date-card">
+        <div class="month">November</div>
+        <div class="day">10</div>
+        <div class="dow">Tuesday</div>
+        <p class="placeholder">Time: TBD<br>Location: TBD</p>
+      </div>
+      <div class="card date-card">
+        <div class="month">November</div>
+        <div class="day">11</div>
+        <div class="dow">Wednesday</div>
+        <p class="placeholder">Time: TBD<br>Location: TBD</p>
+      </div>
+    </div>
+    <!-- EDIT: fill in the audition times and location above, and adjust the tips below as needed. -->
+    <div class="note">
+      <strong>What to expect:</strong> Students will sing a short selection and read a few lines from the script. Find the songs and sides in the <a href="#materials">audition materials</a> section.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Rehearsal Schedule</h2>
+      <p>Rehearsal dates and times will be posted here once the cast is announced.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Time</th><th>Location</th><th>Who's Called</th></tr>
+        </thead>
+        <tbody>
+          <!-- EDIT: copy a <tr> row for each rehearsal. -->
+          <tr class="placeholder"><td>Sample: Mon, Nov 16</td><td>3:30 – 5:30 PM</td><td>TBD</td><td>Full cast</td></tr>
+          <tr class="placeholder"><td>Sample: Wed, Nov 18</td><td>3:30 – 5:30 PM</td><td>TBD</td><td>Principals</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <strong>Performance dates:</strong> <span class="placeholder">TBD</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATERIALS ============ -->
+<section id="materials" class="materials">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Audition Materials</h2>
+      <p>Songs and sides for <em>Beauty and the Beast</em>. Please prepare before auditions.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>🎵 Songs</h3>
+        <ul>
+          <!-- EDIT: replace with real links, e.g. <li><a href="materials/belle.pdf">Belle – sheet music</a></li> -->
+          <li class="soon">Songs coming soon.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📜 Sides</h3>
+        <ul>
+          <!-- EDIT: replace with real links, e.g. <li><a href="materials/sides-belle.pdf">Belle sides</a></li> -->
+          <li class="soon">Sides coming soon.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAST ============ -->
+<section id="cast">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The Cast</h2>
+      <p>The cast list will be posted here after auditions.</p>
+    </div>
+    <div class="grid">
+      <!-- EDIT: copy a .cast-card for each cast member. To use a photo, replace the emoji with <img src="images/name.jpg" alt="Name">. -->
+      <div class="card cast-card placeholder">
+        <div class="avatar" aria-hidden="true">🌹</div>
+        <h3>Student Name</h3>
+        <p>Belle</p>
+      </div>
+      <div class="card cast-card placeholder">
+        <div class="avatar" aria-hidden="true">🦁</div>
+        <h3>Student Name</h3>
+        <p>The Beast</p>
+      </div>
+      <div class="card cast-card placeholder">
+        <div class="avatar" aria-hidden="true">🕯️</div>
+        <h3>Student Name</h3>
+        <p>Lumière</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAST SHOWS ============ -->
+<section id="past-shows">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Past Shows</h2>
+      <p>More than a decade of community theater.</p>
+    </div>
+    <div class="grid" style="grid-template-columns: 1fr;">
+      <!-- EDIT: copy a .show card for each year, newest first. -->
+      <div class="card show placeholder">
+        <div class="year">2025</div>
+        <div><h3>Show Title</h3><p>A short description, or a link to photos.</p></div>
+      </div>
+      <div class="card show placeholder">
+        <div class="year">2024</div>
+        <div><h3>Show Title</h3><p>A short description, or a link to photos.</p></div>
+      </div>
+      <div class="card show placeholder">
+        <div class="year">2023</div>
+        <div><h3>Show Title</h3><p>A short description, or a link to photos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About Ansonia Theater</h2>
+      <p>Each year, Ansonia Theater brings 4th, 5th, and 6th graders together to put on a play for the community. For over a decade, our founders have helped local students find their voice, build confidence, and share the stage.</p>
+    </div>
+    <div class="founders">
+      <div class="card cast-card">
+        <div class="avatar" aria-hidden="true">🎭</div>
+        <h3>Nancy Tingley</h3>
+        <p>Co-Founder</p>
+      </div>
+      <div class="card cast-card">
+        <div class="avatar" aria-hidden="true">🎭</div>
+        <h3>Chris Pytlak</h3>
+        <p>Co-Founder</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Ansonia Theater</strong> · Community theater for grades 4–6</p>
+    <!-- EDIT: add a real contact email -->
+    <p class="placeholder">Questions? Contact: your-email@example.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
