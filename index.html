@@ -94,7 +94,10 @@
   table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; }
   th, td { padding: .85rem 1rem; text-align: left; border-bottom: 1px solid #ead9b8; }
   th { background: var(--burgundy); color: var(--gold-soft); font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; }
-  tr:last-child td { border-bottom: 0; }
+  tr:last-child td, tr:last-child th { border-bottom: 0; }
+  .sched { margin-top: 1.25rem; }
+  .sched tbody th { font-family: var(--serif); font-size: 1.15rem; color: var(--burgundy); white-space: nowrap; vertical-align: top; background: var(--cream); }
+  .sched-note { display: block; color: var(--muted); font-size: .85rem; }
 
   /* Materials */
   .materials h3 { color: var(--burgundy); font-size: 1.5rem; }
@@ -223,21 +226,40 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Rehearsal Schedule</h2>
-      <p>Rehearsal dates and times will be posted here once the cast is announced.</p>
+      <p>All rehearsals run <strong>3:30–5:00 PM</strong>. They end at 5 PM, so please pick students up promptly.</p>
     </div>
-    <div class="table-scroll">
+    <div class="grid">
+      <div class="card">
+        <h3>At Prendergast School</h3>
+        <p>Prendergast students are dismissed from class to the gym right after school. Mead students are bussed over. AMS students should be dropped off any time after 3:20 PM.</p>
+      </div>
+      <div class="card">
+        <h3>At Ansonia High School</h3>
+        <p>Mead and Prendergast students are bussed over. AMS students should be dropped off any time after 3:20 PM.</p>
+      </div>
+    </div>
+    <div class="table-scroll sched">
       <table>
         <thead>
-          <tr><th>Date</th><th>Time</th><th>Location</th><th>Who's Called</th></tr>
+          <tr><th>Month</th><th>Dates</th><th>Location</th></tr>
         </thead>
         <tbody>
-          <!-- EDIT: copy a <tr> row for each rehearsal. -->
-          <tr class="placeholder"><td>TBD</td><td>TBD</td><td>TBD</td><td>TBD</td></tr>
+          <tr><th scope="row">January</th><td>4–5, 11–13, 19, 25–27</td><td>Prendergast</td></tr>
+          <tr><th scope="row">February</th><td>1–2, 8–10, 16–17, 22–24</td><td>Prendergast</td></tr>
+          <tr><th scope="row">March</th><td>1–2, 8, 15–17, 22–24, 30–31</td><td>Prendergast</td></tr>
+          <tr><th scope="row" rowspan="3">April</th><td>5–6</td><td>Ansonia High School</td></tr>
+          <tr><td>19–21</td><td>Prendergast <span class="sched-note">(moved from AHS due to a stage conflict)</span></td></tr>
+          <tr><td>26–28</td><td>Ansonia High School</td></tr>
+          <tr><th scope="row" rowspan="2">May</th><td>3–7</td><td>Ansonia High School</td></tr>
+          <tr><td>Sat 8 <span class="sched-note">(drop off at AHS by 12 PM)</span></td><td>Ansonia High School</td></tr>
         </tbody>
       </table>
     </div>
     <div class="note">
-      <strong>Performance dates:</strong> <span class="placeholder">TBD</span>
+      <strong>Performances</strong> (all at Ansonia High School)<br>
+      Thursday, May 6 &middot; 6 PM<br>
+      Friday, May 7 &middot; 6 PM<br>
+      Saturday, May 8 &middot; 2 PM
     </div>
   </div>
 </section>
