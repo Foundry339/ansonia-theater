@@ -122,6 +122,8 @@
   .role-card { padding: .7rem 1rem; text-align: left; }
   .role-card h3 { font-size: 1.15rem; margin: 0; color: var(--burgundy); }
   .role-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+  .ensemble-card { grid-column: 1 / -1; }
+  .role-card .ensemble-names { margin-top: .5rem; line-height: 1.7; }
   @media (max-width: 420px) { .cast-grid { grid-template-columns: 1fr; } }
   .cast-card h3 { font-size: 1.3rem; margin: 0; color: var(--burgundy); }
   .cast-card p { margin: 0; color: var(--muted); font-size: .95rem; }
@@ -313,65 +315,104 @@
   <div class="wrap">
     <div class="section-head">
       <h2>The Cast</h2>
-      <p>The cast list will be posted here after auditions.</p>
+      <p>Meet the students bringing Beauty and the Beast to the stage.</p>
     </div>
     <div class="cast-grid">
-      <!-- EDIT: copy a .role-card for each cast member. -->
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Belle</p>
+      <div class="card role-card">
+        <h3>Narrator 1</h3>
+        <p>Aurora Santos</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Beast / Prince</p>
+      <div class="card role-card">
+        <h3>Narrator 2</h3>
+        <p>Alanie Otero</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Gaston</p>
+      <div class="card role-card">
+        <h3>Narrator 3</h3>
+        <p>Hollie Elmore</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Lefou</p>
+      <div class="card role-card">
+        <h3>Narrator 4</h3>
+        <p>Maya Benjamin</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Maurice</p>
+      <div class="card role-card">
+        <h3>Belle</h3>
+        <p>Melissa Andrade</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Lumiere</p>
+      <div class="card role-card">
+        <h3>Beast</h3>
+        <p>Amir Wragg</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Cogsworth</p>
+      <div class="card role-card">
+        <h3>Prince / Monsieur D’Arque</h3>
+        <p>Tri’stan Bustic</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Mrs. Potts</p>
+      <div class="card role-card">
+        <h3>Beggar Woman / Enchantress</h3>
+        <p>Bianca Bolton</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Chip</p>
+      <div class="card role-card">
+        <h3>Gaston</h3>
+        <p>Roman Santiago</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Babette</p>
+      <div class="card role-card">
+        <h3>Lefou</h3>
+        <p>Dean Perini</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Madame de la Grande Bouche</p>
+      <div class="card role-card">
+        <h3>Maurice</h3>
+        <p>Bronson Peters</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Monsieur D’Arque</p>
+      <div class="card role-card">
+        <h3>Lumiere</h3>
+        <p>Gia Speranzini</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Old Beggar Woman / Enchantress</p>
+      <div class="card role-card">
+        <h3>Cogsworth</h3>
+        <p>Benjamin Hansen</p>
       </div>
-      <div class="card role-card placeholder">
-        <h3>Student Name</h3>
-        <p>Ensemble</p>
+      <div class="card role-card">
+        <h3>Babette</h3>
+        <p>Maripaz Urena Naranjo</p>
+      </div>
+      <div class="card role-card">
+        <h3>Mrs. Potts</h3>
+        <p>Neena Wragg</p>
+      </div>
+      <div class="card role-card">
+        <h3>Chip</h3>
+        <p>Aria Languerand</p>
+      </div>
+      <div class="card role-card">
+        <h3>Madame De La Grande Bouche</h3>
+        <p>Alaiah Mercedes</p>
+      </div>
+      <div class="card role-card">
+        <h3>Les Filles (Silly Girl)</h3>
+        <p>Kyra Wanciak</p>
+      </div>
+      <div class="card role-card">
+        <h3>Les Filles (Silly Girl)</h3>
+        <p>Luci Santiago</p>
+      </div>
+      <div class="card role-card">
+        <h3>Les Filles (Silly Girl)</h3>
+        <p>Nadia Herman</p>
+      </div>
+      <div class="card role-card">
+        <h3>Villager 1</h3>
+        <p>Johanna Jamison</p>
+      </div>
+      <div class="card role-card">
+        <h3>Villager 2</h3>
+        <p>Lia Lema Lozado</p>
+      </div>
+      <div class="card role-card">
+        <h3>Villager 3</h3>
+        <p>Zoe Otero</p>
+      </div>
+      <div class="card role-card ensemble-card">
+        <h3>Ensemble</h3>
+        <p class="ensemble-names">Sheyra Damania, Emma Frouge, Lola Rodriguez, Caylee Glazier, Elias Beaubrun, Josalynn Nay, Miah Humphrey, Destiny Taylor, Rylie Evans, Della White, Xaira Whittaker, Savannah Troupe, Valentina Javier, Kalia Blair, Koda Colon, Luis Santiago, Jayla Rivera, Genevive Reynolds, Ilyanna Gomez, McKayla Coyne, Avery Brickett, Victor Kabangala, Kylee Pujouis, Briella Ossie, Everlie Rodriguez, Rein Lawlor, Maria Capulin, Jewel Lewis, Kayla Brown, Addilyn De Los Santos, Camila Valencia, Adalynee Villalobos, Sophia Manzano, Genesis Madeline Bruno, Woodly Vixama, Kaylee Fowler, Marcos Cruz Barreiro, Landon Esposito, Cassandra Marino, Emma McCormack, Mateen Moeen</p>
       </div>
     </div>
   </div>
